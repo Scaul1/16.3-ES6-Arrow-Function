@@ -1,0 +1,60 @@
+//Here is the evidence that I completed the Coding Train lesson on the Arrow Function along with Shiffman
+
+//Our previous way of writing a function would look like this:
+/*
+//program to randomize the background shade 
+function setup() {
+  createCanvas(600, 400);
+  background(0);
+  let button = createButton('press');
+  button.mousePressed(changeBackground);
+  
+  function changeBackground() {
+    background(random(255));
+  }
+}
+*/
+
+//same function to randomize background shade written with the arrow function looks like this:
+
+/*
+function setup() {
+  createCanvas(600, 400);
+  background(0);
+  let button = createButton('press');
+  button.mousePressed( () => background(random(255)));
+}
+*/
+
+//in the above scenario, both function styles worked the same. In the following scenario it only works to use the arrow function.
+
+function setup() {
+  noCanvas();
+  const counter1 = new Counter(120, 400);
+  counter1.start();
+  const counter2 = new Counter(200, 1000);
+  counter2.start();
+  const counter3 = new Counter(700, 610);
+  counter3.start();
+  const counter4 = new Counter(80, 240);
+  counter4.start();
+ }
+ 
+ class Counter {
+  constructor(start, wait) {
+    this.count = 0;
+    this.wait = wait;
+    this.p = createP('');
+    
+    start() {
+      setInterval(() => {
+        this.countIt();
+       }, this.wait); 
+    }
+    
+    countIt() {
+    this.count++;
+    this.p.html(this.count);
+    }
+  
+ }
